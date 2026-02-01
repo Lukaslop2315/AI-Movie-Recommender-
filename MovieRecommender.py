@@ -101,8 +101,7 @@ def main():
         print("Please try again")
         quit()
     
-    # Check if a valid movie was selected before proceeding
-    if index is None:
+    if index == 0:
         print("No valid movie selected. Please restart the program.")
         quit()
     
@@ -184,5 +183,6 @@ main()
 
 
     
+
 
 
