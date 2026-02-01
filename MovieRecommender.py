@@ -1,8 +1,6 @@
 import numpy as np
 import pandas as pd
 import time as tm
-import tkinter as tk
-from tkinter import messagebox
 from sklearn.neighbors import NearestNeighbors
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.preprocessing import MinMaxScaler
@@ -19,14 +17,7 @@ dataFrame["budget"] = dataFrame["budget"].fillna(0) # missing values with 0
 dataFrame["revenue"] = dataFrame["revenue"].fillna(0)  
 dataFrame["ROI"] = ((dataFrame["revenue"] - dataFrame["budget"]) / dataFrame["budget"].replace(0, 1)) * 100      # Movie ROI  how well it performed (assuming movie used all its budget as initial investment) replaces 0 with 1 to avoid division by zero
 
-
-#root = tk.Tk()
-#root.title("Movie Recommender")
-#root.geometry("900x700")  
-
 filterDF = dataFrame[(dataFrame["vote_average"] >= 5) & (dataFrame["vote_count"] >= 50) & (dataFrame["runtime"] >= 40) & (dataFrame['original_language'] == "en")].copy()  #filter the df to remove terrible movies / non english etc
-
-
 
 def main():
     index = 0
@@ -169,7 +160,6 @@ def numberFeatureScaler(movieMatrix, indexForUserTitle,vectoriser,textMatrix):
     fullMatrix = hstack([textMatrix, csr_matrix(allNumberFeaturesScaled)])    # NEEDED for model to TRAIN ON 
     recommender(userMovieMatrix, indexForUserTitle, fullMatrix)
 
-
 def recommender(userMovieMatrix, indexForUserTitle, fullMatrix):
     kNNmodel = NearestNeighbors(n_neighbors=8, metric="cosine")  # cosine similarty 
     kNNmodel.fit(fullMatrix) # train with all inputs 
@@ -194,3 +184,4 @@ main()
 
 
     
+
