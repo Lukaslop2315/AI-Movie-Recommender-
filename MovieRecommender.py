@@ -64,6 +64,7 @@ def main():
         print(filterDF.loc[indexNmbr, "vote_average"])
         print(filterDF.loc[indexNmbr, "vote_count"])  
         print(filterDF.loc[indexNmbr, "genres"])
+        print("-"*60)
         answer = input("y/n: ")
         if answer == "y":
             titles.append(filterDF.loc[indexNmbr, "title"])   
@@ -189,6 +190,7 @@ def recommender(userMovieMatrix, indexForUserTitle, fullMatrix):
         continue
 
 main()
+
 
 
     
