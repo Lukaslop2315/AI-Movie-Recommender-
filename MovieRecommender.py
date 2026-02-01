@@ -131,7 +131,7 @@ def main():
             print("Invalid input")
             continue
 
-                              # // pipeline vectorize text features  , then add all the numerical features ,   scale all features  , then put into matrix _--> feed into model // train // predict user inputs
+                              # // pipeline vectorise text features  , then add all the numerical features ,   scale all features  , then put into matrix _--> feed into model // train // predict user inputs
 def vectoriser(index):
     # creates extra column  for text features combined in the dataFrame
     filterDF["textFeaturesCombined"] = (filterDF["overview"].fillna("") + " " + filterDF["tagline"].fillna("") + " " + filterDF["keywords"].fillna("")*5 + " " + (filterDF["genres"].fillna("") + " ") * 5 # 5 times for more weight
@@ -184,4 +184,5 @@ main()
 
 
     
+
 
