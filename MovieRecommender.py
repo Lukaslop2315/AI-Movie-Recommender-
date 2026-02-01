@@ -9,7 +9,7 @@ from scipy.sparse import csr_matrix
 
 
 
-
+# //Apologies for terrible variable naming // Im trying to get better//
 # Movie recommender system
 titles = []
 dataFrame = pd.read_csv("TMDB_movie_dataset_v11.csv", usecols = ["title","vote_average", "vote_count", "release_date","revenue","adult","popularity","budget","original_language","runtime","genres","keywords","overview","homepage","tagline"])
@@ -183,6 +183,7 @@ main()
 
 
     
+
 
 
 
