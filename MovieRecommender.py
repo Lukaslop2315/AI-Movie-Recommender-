@@ -133,7 +133,7 @@ def main():
                               # // pipeline vectorise text features  , then add all the numerical features ,   scale all features  , then put into matrix _--> feed into model // train // predict user inputs
 def vectoriser(index):
     # creates extra column  for text features combined in the dataFrame
-    filterDF["textFeaturesCombined"] = (filterDF["overview"].fillna("") + " " + filterDF["tagline"].fillna("") + " " + filterDF["keywords"].fillna("")*5 + " " + (filterDF["genres"].fillna("") + " ") * 5 # 5 times for more weight
+    filterDF["textFeaturesCombined"] = (filterDF["overview"].fillna("") + " " + filterDF["tagline"].fillna("") + " " + filterDF["keywords"].fillna("")*5 + " " + (filterDF["genres"].fillna("") * 5+ " ")  # 5 times for more weight
     )
     vectoriser = TfidfVectorizer(max_features=7000, stop_words="english")  # max_features is the number of different features / words to compare  so 3000 of love , fight , action .... so on 
     textMatrix = vectoriser.fit_transform(filterDF["textFeaturesCombined"]) # vocab for ALL MOVIES of textFeaturesCombined
@@ -183,6 +183,7 @@ main()
 
 
     
+
 
 
 
